@@ -19,7 +19,7 @@ app.run { window in
     let button = Button(label: "Press")
     button.label = "Press Me"
     button.clicked = { [unowned label] _ in
-        label.text = "Oh, you pressed the button."
+        label.html = "<b>Oh, you pressed the button.</b>"
 
         let newWindow = Window(windowType: .topLevel)
         newWindow.title = "Just a window"

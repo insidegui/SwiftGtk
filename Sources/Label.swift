@@ -26,6 +26,20 @@ public class Label: Widget {
             }
         }
     }
+    
+    public var html: String? {
+        get {
+            return String(cString: gtk_label_get_text(castedPointer()))
+        }
+        set {
+            if let html = newValue {
+                gtk_label_set_markup(castedPointer(), html)
+            } else {
+                gtk_label_set_use_markup(castedPointer(), 1)
+                gtk_label_set_markup(castedPointer(), nil)
+            }
+        }
+    }
 
     public var selectable: Bool {
         get {
